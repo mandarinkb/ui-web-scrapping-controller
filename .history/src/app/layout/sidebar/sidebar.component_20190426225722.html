@@ -1,0 +1,52 @@
+
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <a  [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+            <span>Dashboard</span>
+        </a>
+        <a  [routerLink]="['/my-file']" [routerLinkActive]="['router-link-active']" class="list-group-item"> <!--[routerLink]="['/charts']" [routerLinkActive]="['router-link-active']"-->
+            <i class="fa fa-fw fa-file-o"></i>&nbsp;
+            <span>My File</span>
+        </a>
+        <a  [routerLink]="['/share-file']" [routerLinkActive]="['router-link-active']" class="list-group-item"> <!--[routerLink]="['/charts']" [routerLinkActive]="['router-link-active']"-->
+            <i class="fa fa-fw fa-file-o"></i>&nbsp;
+            <span>Share File</span>
+        </a>
+
+
+      <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')" style="margin-left: 4px;">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>Admin tool</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a href="javascript:void(0)"  class="list-group-item">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>จัดการหน่วยงาน</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="list-group-item">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>จัดการสมาชิก</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="list-group-item">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>Submenu</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+   </div>
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+        <!--<span>Collapse Sidebar</span>-->
+    </div>
+</nav>
+
