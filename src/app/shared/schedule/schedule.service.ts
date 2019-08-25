@@ -25,4 +25,10 @@ export class ScheduleService {
   updateSchedule(id: number, form: NgForm) {
     return this.http.put(this.rootURL + '/schedule/' + id , form);
   }
+  restartWebScrapping(form: NgForm) {
+    return this.http.post('http://localhost:8081/api/restart-web-scrapping', form);
+  }
+  restartWebScrappingInputDatabase(form: NgForm) {
+    return this.http.post('http://localhost:8082/api/restart-web-scrapping-input-database', form);
+  }
 }

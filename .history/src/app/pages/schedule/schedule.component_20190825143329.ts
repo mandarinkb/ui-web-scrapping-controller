@@ -73,6 +73,12 @@ export class ScheduleComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
       this.updateSchedule(form.value.schedule_id , form.value);
+      if (form.value.project_name === 'web scrapping') {
+
+      }
+      if (form.value.project_name === 'web scrapping input database') {
+
+      }
   }
   openSm(content) {
     this.modalService.open(content, { size: 'sm' });

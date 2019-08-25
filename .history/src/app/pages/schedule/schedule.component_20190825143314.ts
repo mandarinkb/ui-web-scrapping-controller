@@ -16,7 +16,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ScheduleComponent implements OnInit {
   collapedSideBar: boolean;
-  displayedColumns: string[] = ['schedule name', 'cron expression', 'function name', 'project name', 'edit'];
+  displayedColumns: string[] = ['schedule name', 'cron expression', 'function name', 'project name', 'detail', 'edit'];
   dataSource = new MatTableDataSource<Schedule>();
   @ViewChild('paginator') paginator: MatPaginator;
   constructor(public service: ScheduleService ,
@@ -41,7 +41,8 @@ export class ScheduleComponent implements OnInit {
       schedule_name: '',
       cron_expression: '',
       function_name: '',
-      project_name: ''
+      project_name: '',
+      detail: ''
     };
   }
 
@@ -71,12 +72,14 @@ export class ScheduleComponent implements OnInit {
     });
   }
   onSubmit(form: NgForm) {
-    if (form.value.schedule_id == null) {
-      console.log('null');
-    } else {
-      console.log(form.value.schedule_id);
-      this.updateSchedule(form.value.schedule_id , form.v);
-    }
+      this.updateSchedule(form.value.schedule_id , form.value);
+      console.log(form.value.project_name);
+      if (form.value.project_name === 'web scrapping') {
+
+      }
+      if (form.value.project_name === 'web scrapping input database') {
+
+      }
   }
   openSm(content) {
     this.modalService.open(content, { size: 'sm' });
