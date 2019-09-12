@@ -23,6 +23,15 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { ChartsModule } from 'ng2-charts';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { ControlComponent } from './pages/control/control.component';
+// for HttpClient import:
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
+// for Router import:
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+
+// for Core import:
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { UsersComponent } from './pages/users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +47,7 @@ import { ControlComponent } from './pages/control/control.component';
     FooterComponent,
     ScheduleComponent,
     ControlComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +60,14 @@ import { ControlComponent } from './pages/control/control.component';
     ToastrModule.forRoot(),
     NgxPaginationModule,
     PdfViewerModule,
-    ChartsModule
+    ChartsModule,
+    // for HttpClient use:
+    LoadingBarHttpClientModule,
+    // for Router use:
+    LoadingBarRouterModule,
+    // for Core use:
+    LoadingBarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
