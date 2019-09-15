@@ -56,8 +56,7 @@ export class ControlComponent implements OnInit {
     if (form.value.web_id == null) {
       this.saveWeb(form.value);
     } else {
-      console.log(form.value);
-      this.updateWeb(form.value.web_id , form.value);
+
     }
   }
 
@@ -87,7 +86,7 @@ export class ControlComponent implements OnInit {
     });
   }
 
-  updateWeb(id , form: NgForm) {
+  updateSchedule(id , form: NgForm) {
     this.service.updateWeb(id, form).subscribe((res: Response) => {
       if (res.status === 200) {
         this.toastr.success(res.message, 'Update web success.');

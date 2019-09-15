@@ -127,8 +127,7 @@ export class ScheduleComponent implements OnInit {
       )
       .then(confirmed => {  // กดok => confirmed = true , กดcancel => confirmed = false
         if (confirmed) {
-          // console.log(id);
-          this.deleteSchedule(id);
+          console.log(id);
         } else {
         // กรณี cancel ลบ
           console.log('cancel');

@@ -47,7 +47,7 @@
                   (click)="openWindowCustomClass(editContent);readScheduleById(element.schedule_id);">
                   <i class="fa fa-pencil-square-o fa-fw"></i>แก้ไข
                 </button>
-                <button type="button" class="btn btn-mini btn-danger btn-with-icon" (click)="onDelete(element.schedule_id)"><!--(click)=""-->
+                <button type="button" class="btn btn-mini btn-danger btn-with-icon" (click)="onDelete()"><!--(click)=""-->
                 <i class="fa fa-trash fa-fw"></i>ลบ
                 </button>
                 </td>
@@ -161,7 +161,7 @@
 </ng-template>
 
 <ng-template #addContent let-modal>
-    <div class="modal-header modal-header-color">
+    <div class="modal-header" style="background-color: #f6f6f6;">
       <h4 class="modal-title">add</h4>
       <button
         type="button"
@@ -223,7 +223,7 @@
         </div>
 
       </div>
-      <div class="modal-footer modal-footer-color">
+      <div class="modal-footer" style="background-color: #f6f6f6;">
         <div class="form-group" style="margin: 0 auto;">
           <button
             type="submit"

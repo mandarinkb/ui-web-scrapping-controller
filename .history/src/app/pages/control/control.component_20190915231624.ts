@@ -56,8 +56,7 @@ export class ControlComponent implements OnInit {
     if (form.value.web_id == null) {
       this.saveWeb(form.value);
     } else {
-      console.log(form.value);
-      this.updateWeb(form.value.web_id , form.value);
+
     }
   }
 

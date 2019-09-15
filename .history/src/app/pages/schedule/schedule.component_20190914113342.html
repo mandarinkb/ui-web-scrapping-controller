@@ -9,7 +9,7 @@
     <div class="card card-block animated fadeIn" id="content-wrap">
       <div class="row">
         <div class="col-md-12" style="max-width: 98%;margin: auto;margin-top: 10px;">
-          <button type="button" class="btn btn-mini btn-success btn-with-icon" (click)="openWindowCustomClass(addContent);resetForm();">
+          <button type="button" class="btn btn-mini btn-success btn-with-icon" (click)="openWindowCustomClass(addContent)">
             <i class="fa fa-plus fa-fw"></i>เพิ่ม
           </button>
         </div>
@@ -47,7 +47,7 @@
                   (click)="openWindowCustomClass(editContent);readScheduleById(element.schedule_id);">
                   <i class="fa fa-pencil-square-o fa-fw"></i>แก้ไข
                 </button>
-                <button type="button" class="btn btn-mini btn-danger btn-with-icon" (click)="onDelete(element.schedule_id)"><!--(click)=""-->
+                <button type="button" class="btn btn-mini btn-danger btn-with-icon" (click)="onDelete()"><!--(click)=""-->
                 <i class="fa fa-trash fa-fw"></i>ลบ
                 </button>
                 </td>
@@ -67,7 +67,7 @@
 </section>
 
 <ng-template #editContent let-modal>
-  <div class="modal-header modal-header-color">
+  <div class="modal-header" style="background-color: #f6f6f6;">
     <h4 class="modal-title">ตั้งเวลาทำงาน</h4>
     <button
       type="button"
@@ -95,48 +95,18 @@
       <div class="form-group">
         <label>Cron expression</label>
         <input name="cron_expression" #cron_expression="ngModel" [(ngModel)]="service.formScheduleData.cron_expression"
-          class="form-control" required />
+          class="form-control" required />         
         <div class="validation-error" *ngIf="cron_expression.invalid && cron_expression.touched">
           กรุณากรอกข้อมูล
         </div>
-        <div style="font-size: 13px;"><label>generate cron expression <span><a href="http://www.cronmaker.com/"
-                target="_blank">click here</a></span></label></div>
+        <div style="font-size: 13px;"><label>generate cron expression <span><a href="http://www.cronmaker.com/" target="_blank">click here</a></span></label></div>
       </div>
-      
-      <!--     <div class="form-group">
-              <input type="hidden" name="project_name" #project_name="ngModel"
-                [(ngModel)]="service.formScheduleData.project_name" />
-            </div> 
-      -->
-      
       <div class="form-group">
-        <label>Function name</label>
-        <input name="function_name" #function_name="ngModel" [(ngModel)]="service.formScheduleData.function_name"
-          class="form-control" required />
-        <div class="validation-error" *ngIf="function_name.invalid && function_name.touched">
-          กรุณากรอกข้อมูล
-        </div>
+        <input type="hidden" name="project_name" #project_name="ngModel"
+          [(ngModel)]="service.formScheduleData.project_name" />
       </div>
-      
-      <div class="form-group">
-        <label>Project name</label>
-        <input name="project_name" #project_name="ngModel" [(ngModel)]="service.formScheduleData.project_name"
-          class="form-control" required />
-        <div class="validation-error" *ngIf="project_name.invalid && project_name.touched">
-          กรุณากรอกข้อมูล
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label>Detail</label>
-        <input name="detail" #detail="ngModel" [(ngModel)]="service.formScheduleData.detail" class="form-control" required />
-        <div class="validation-error" *ngIf="detail.invalid && detail.touched">
-          กรุณากรอกข้อมูล
-        </div>
-      </div>
-
     </div>
-    <div class="modal-footer modal-footer-color">
+    <div class="modal-footer" style="background-color: #f6f6f6;">
       <div class="form-group" style="margin: 0 auto;">
         <button
           type="submit"
@@ -161,7 +131,7 @@
 </ng-template>
 
 <ng-template #addContent let-modal>
-    <div class="modal-header modal-header-color">
+    <div class="modal-header" style="background-color: #f6f6f6;">
       <h4 class="modal-title">add</h4>
       <button
         type="button"
@@ -223,7 +193,7 @@
         </div>
 
       </div>
-      <div class="modal-footer modal-footer-color">
+      <div class="modal-footer" style="background-color: #f6f6f6;">
         <div class="form-group" style="margin: 0 auto;">
           <button
             type="submit"

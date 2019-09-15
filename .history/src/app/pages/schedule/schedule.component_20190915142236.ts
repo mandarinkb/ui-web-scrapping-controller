@@ -83,17 +83,6 @@ export class ScheduleComponent implements OnInit {
     }, err => {
     });
   }
-
-  deleteSchedule(id) {
-    this.service.deleteSchedule(id).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Delete cron expression success.');
-      }
-      this.readSchedule();
-    }, err => {
-    });
-  }
-
   onSubmit(form: NgForm) {
     if (form.value.schedule_id == null) {
       this.saveSchedule(form.value);
@@ -119,7 +108,7 @@ export class ScheduleComponent implements OnInit {
     this.modalService.open(content, { windowClass: 'dark-modal' });
   }
 
-  onDelete(id) {
+  onDelete() {
     this.dialogService
       .confirm(
         'ยืนยันการลบรายการ..',
@@ -127,8 +116,7 @@ export class ScheduleComponent implements OnInit {
       )
       .then(confirmed => {  // กดok => confirmed = true , กดcancel => confirmed = false
         if (confirmed) {
-          // console.log(id);
-          this.deleteSchedule(id);
+          console.log('ok');
         } else {
         // กรณี cancel ลบ
           console.log('cancel');

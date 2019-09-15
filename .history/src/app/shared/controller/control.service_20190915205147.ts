@@ -21,9 +21,7 @@ export class ControlService {
   getWeb() {
     return this.http.get(this.rootURL + '/web');
   }
-  readWebById(id: number) {
-    return this.http.get(this.rootURL + '/web/' + id);
-  }
+
   updateWebStatus(id: number , formData: any ) {
     return this.http.put(this.rootURL + '/web-status/' + id , formData);
   }

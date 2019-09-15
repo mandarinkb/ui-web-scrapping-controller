@@ -14,9 +14,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./control.component.scss']
 })
 export class ControlComponent implements OnInit {
-  webStatus = '1';
-
   collapedSideBar: boolean;
+
   displayedColumns: string[] = ['url', 'name', 'season',  'status', 'action'];
   dataSource = new MatTableDataSource<Web>();
   @ViewChild('paginator') paginator: MatPaginator;
@@ -45,7 +44,7 @@ export class ControlComponent implements OnInit {
       url: '',
       type: '',
       type_detail: '',
-      web_status: '',
+      web_status: null,
       season: '',
       base_url: '',
       detail: ''
@@ -53,48 +52,12 @@ export class ControlComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    console.log(form.value);
     if (form.value.web_id == null) {
-      this.saveWeb(form.value);
+      // this.insertRecord(form , this.memberId);
     } else {
-      console.log(form.value);
-      this.updateWeb(form.value.web_id , form.value);
+      // this.updateRecord(form , this.memberId);
     }
-  }
-
-  readWebById(id) {
-    this.service.readWebById(id).subscribe((res: Web) => {
-      this.service.formData = res;
-    }, err => {
-    });
-  }
-
-  saveWeb(form: NgForm) {
-    this.service.saveWeb(form).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Save web success.');
-      }
-      this.getWebController();
-    }, err => {
-    });
-  }
-  deleteWeb(id) {
-    this.service.deleteWeb(id).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Delete web success.');
-      }
-      this.getWebController();
-    }, err => {
-    });
-  }
-
-  updateWeb(id , form: NgForm) {
-    this.service.updateWeb(id, form).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Update web success.');
-      }
-      this.getWebController();
-    }, err => {
-    });
   }
 
   onChanged(event, id: number ) {
@@ -135,7 +98,7 @@ export class ControlComponent implements OnInit {
     });
   }
 
-  onDelete(id) {
+  onDelete() {
     this.dialogService
       .confirm(
         'ยืนยันการลบรายการ..',
@@ -143,8 +106,7 @@ export class ControlComponent implements OnInit {
       )
       .then(confirmed => {  // กดok => confirmed = true , กดcancel => confirmed = false
         if (confirmed) {
-          // console.log('ok');
-          this.deleteWeb(id);
+          console.log('ok');
         } else {
         // กรณี cancel ลบ
           console.log('cancel');

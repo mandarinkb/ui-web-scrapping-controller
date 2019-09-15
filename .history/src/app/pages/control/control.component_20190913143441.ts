@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Response } from 'src/app/shared/response.model';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-control',
@@ -14,9 +13,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./control.component.scss']
 })
 export class ControlComponent implements OnInit {
-  webStatus = '1';
-
   collapedSideBar: boolean;
+
   displayedColumns: string[] = ['url', 'name', 'season',  'status', 'action'];
   dataSource = new MatTableDataSource<Web>();
   @ViewChild('paginator') paginator: MatPaginator;
@@ -28,73 +26,9 @@ export class ControlComponent implements OnInit {
 
   ngOnInit() {
     this.getWebController();
-    this.resetForm();
   }
   receiveCollapsed($event) {
     this.collapedSideBar = $event;
-  }
-
-  resetForm(form?: NgForm) {
-    if (form != null) {
-       form.resetForm();
-    }
-    // clear form
-    this.service.formData = {
-      web_id: null ,
-      web_name: '' ,
-      url: '',
-      type: '',
-      type_detail: '',
-      web_status: '',
-      season: '',
-      base_url: '',
-      detail: ''
-    };
-  }
-
-  onSubmit(form: NgForm) {
-    if (form.value.web_id == null) {
-      this.saveWeb(form.value);
-    } else {
-      console.log(form.value);
-      this.updateWeb(form.value.web_id , form.value);
-    }
-  }
-
-  readWebById(id) {
-    this.service.readWebById(id).subscribe((res: Web) => {
-      this.service.formData = res;
-    }, err => {
-    });
-  }
-
-  saveWeb(form: NgForm) {
-    this.service.saveWeb(form).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Save web success.');
-      }
-      this.getWebController();
-    }, err => {
-    });
-  }
-  deleteWeb(id) {
-    this.service.deleteWeb(id).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Delete web success.');
-      }
-      this.getWebController();
-    }, err => {
-    });
-  }
-
-  updateWeb(id , form: NgForm) {
-    this.service.updateWeb(id, form).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Update web success.');
-      }
-      this.getWebController();
-    }, err => {
-    });
   }
 
   onChanged(event, id: number ) {
@@ -135,7 +69,7 @@ export class ControlComponent implements OnInit {
     });
   }
 
-  onDelete(id) {
+  onDelete() {
     this.dialogService
       .confirm(
         'ยืนยันการลบรายการ..',
@@ -143,8 +77,7 @@ export class ControlComponent implements OnInit {
       )
       .then(confirmed => {  // กดok => confirmed = true , กดcancel => confirmed = false
         if (confirmed) {
-          // console.log('ok');
-          this.deleteWeb(id);
+          console.log('ok');
         } else {
         // กรณี cancel ลบ
           console.log('cancel');

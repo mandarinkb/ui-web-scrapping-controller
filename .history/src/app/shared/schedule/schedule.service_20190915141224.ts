@@ -31,7 +31,4 @@ export class ScheduleService {
   saveSchedule(form: NgForm) {
     return this.http.post(this.rootURL + '/schedule', form);
   }
-  deleteSchedule(id: number) {
-    return this.http.delete(this.rootURL + '/schedule/' + id);
-  }
 }

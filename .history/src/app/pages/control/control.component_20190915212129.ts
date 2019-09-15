@@ -53,19 +53,14 @@ export class ControlComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    // console.log(form.value);
     if (form.value.web_id == null) {
-      this.saveWeb(form.value);
-    } else {
+      // this.insertRecord(form , this.memberId);
       console.log(form.value);
-      this.updateWeb(form.value.web_id , form.value);
+      this.saveWeb(form);
+    } else {
+      // this.updateRecord(form , this.memberId);
     }
-  }
-
-  readWebById(id) {
-    this.service.readWebById(id).subscribe((res: Web) => {
-      this.service.formData = res;
-    }, err => {
-    });
   }
 
   saveWeb(form: NgForm) {
@@ -81,16 +76,6 @@ export class ControlComponent implements OnInit {
     this.service.deleteWeb(id).subscribe((res: Response) => {
       if (res.status === 200) {
         this.toastr.success(res.message, 'Delete web success.');
-      }
-      this.getWebController();
-    }, err => {
-    });
-  }
-
-  updateWeb(id , form: NgForm) {
-    this.service.updateWeb(id, form).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Update web success.');
       }
       this.getWebController();
     }, err => {

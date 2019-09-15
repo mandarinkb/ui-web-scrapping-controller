@@ -21,21 +21,11 @@ export class ControlService {
   getWeb() {
     return this.http.get(this.rootURL + '/web');
   }
-  readWebById(id: number) {
-    return this.http.get(this.rootURL + '/web/' + id);
-  }
+
   updateWebStatus(id: number , formData: any ) {
     return this.http.put(this.rootURL + '/web-status/' + id , formData);
   }
-  saveWeb(form: NgForm) {
+  saveSchedule(form: NgForm) {
     return this.http.post(this.rootURL + '/web', form);
-  }
-
-  updateWeb(id: number, form: NgForm) {
-    return this.http.put(this.rootURL + '/web/' + id , form);
-  }
-
-  deleteWeb(id: number) {
-    return this.http.delete(this.rootURL + '/web/' + id);
   }
 }

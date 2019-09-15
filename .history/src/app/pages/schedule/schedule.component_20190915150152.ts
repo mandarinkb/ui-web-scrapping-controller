@@ -119,7 +119,7 @@ export class ScheduleComponent implements OnInit {
     this.modalService.open(content, { windowClass: 'dark-modal' });
   }
 
-  onDelete(id) {
+  onDelete() {
     this.dialogService
       .confirm(
         'ยืนยันการลบรายการ..',
@@ -127,8 +127,7 @@ export class ScheduleComponent implements OnInit {
       )
       .then(confirmed => {  // กดok => confirmed = true , กดcancel => confirmed = false
         if (confirmed) {
-          // console.log(id);
-          this.deleteSchedule(id);
+          console.log('ok');
         } else {
         // กรณี cancel ลบ
           console.log('cancel');

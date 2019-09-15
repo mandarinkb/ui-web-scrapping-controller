@@ -4,7 +4,7 @@ export class Web {
     url: string;
     type: string;
     type_detail: string;
-    web_status: string;
+    web_status: boolean;
     season: string;
     base_url: string;
     detail: string;

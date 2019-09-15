@@ -45,7 +45,7 @@
               <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
                 <td mat-cell *matCellDef="let element">
-                  <button type="button" class="btn btn-mini btn-primary btn-with-icon" (click)="openWindowCustomClass(editContent);readWebById(element.web_id)">
+                  <button type="button" class="btn btn-mini btn-primary btn-with-icon" (click)="openWindowCustomClass(editContent)">
                   <i class="fa fa-pencil-square-o fa-fw"></i>แก้ไข
                 </button>
                 <button type="button" class="btn btn-mini btn-danger btn-with-icon" (click)="onDelete(element.web_id)"><!---->

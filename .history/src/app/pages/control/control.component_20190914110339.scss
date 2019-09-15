@@ -109,10 +109,6 @@
     line-height: 1.5;
     width: 60px;
   }
-  .modal-header-color{
-    background-color: #f6f6f6;
+  button.disabled:hover {
+    cursor: not-allowed;
   }
-  .modal-footer-color{
-    background-color: #f6f6f6;
-  }
-  
