@@ -129,7 +129,7 @@
 </ng-template>
 
 <ng-template #editContent let-modal>
-    <div class="modal-header modal-header-color">
+    <div class="modal-header">
       <h4 class="modal-title">แก้ไขรายการ</h4>
       <button
         type="button"
@@ -139,54 +139,10 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form #form="ngForm" autocomplete="off">
-      <div class="modal-body">
-        <div class="form-group">
-          <input type="hidden" name="id" #schedule_id="ngModel"
-            [(ngModel)]="service.formUsersData.id" />
-        </div>
-        <div class="form-group">
-          <label>Username</label>
-          <input name="username" #username="ngModel" [(ngModel)]="service.formUsersData.username"
-            class="form-control" [disabled]="true" required />         
-          <div class="validation-error" *ngIf="username.invalid && username.touched">
-            กรุณากรอกข้อมูล
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Role</label>
-          <select class="form-control" [(ngModel)]="service.formUsersData.role" #role="ngModel" name="role" required>
-            <option value="user">user</option>
-            <option value="admin">admin</option>
-          </select>
-        <!--<option value="" [disabled]="true"></option>-->
-        <div class="validation-error" *ngIf="role.invalid && role.touched">
-          กรุณาเลือกข้อมูล
-        </div>
-        </div>
-      </div>
-      <div class="modal-footer modal-footer-color">
-        <div class="form-group" style="margin: 0 auto;">
-          <button
-            type="submit"
-            [disabled]="form.invalid"
-            class="btn btn-sm btn-primary"
-            style="width:80px"
-            (click)="onSubmit(form); modal.close('Close click')"
-          >
-            บันทึก</button
-          >&nbsp;&nbsp;
-          <button
-            type="button"
-            class="btn btn-sm btn-default"
-            (click)="modal.close('Close click');"
-            style="width:80px"
-          >
-            ยกเลิก
-          </button>
-        </div>
-      </div>
-    </form>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+    </div>
 </ng-template>
 
 

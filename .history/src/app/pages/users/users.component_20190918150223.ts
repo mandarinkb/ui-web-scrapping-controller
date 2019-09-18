@@ -27,23 +27,11 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.dataSource = new MatTableDataSource<Web>(this.data);  //  set datasource
     this.dataSource.paginator = this.paginator;  // set pagination
-    this.resetForm();
   }
   receiveCollapsed($event) {
     this.collapedSideBar = $event;
   }
-  resetForm(form?: NgForm) {
-    if (form != null) {
-      form.resetForm();
-    }
-    // clear form
-    this.service.formUsersData = {
-      id: null,
-      username: '',
-      password: '',
-      role: ''
-    };
-  }
+
   onDelete() {
     this.dialogService
       .confirm(

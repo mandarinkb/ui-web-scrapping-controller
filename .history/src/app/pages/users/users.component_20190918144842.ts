@@ -4,7 +4,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Web } from 'src/app/shared/controller/web.model';
 import { UsersService } from 'src/app/shared/users/users.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
@@ -27,23 +26,11 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.dataSource = new MatTableDataSource<Web>(this.data);  //  set datasource
     this.dataSource.paginator = this.paginator;  // set pagination
-    this.resetForm();
   }
   receiveCollapsed($event) {
     this.collapedSideBar = $event;
   }
-  resetForm(form?: NgForm) {
-    if (form != null) {
-      form.resetForm();
-    }
-    // clear form
-    this.service.formUsersData = {
-      id: null,
-      username: '',
-      password: '',
-      role: ''
-    };
-  }
+
   onDelete() {
     this.dialogService
       .confirm(
@@ -82,12 +69,4 @@ export class UsersComponent implements OnInit {
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true });
   }
-  onSubmit(form: NgForm) {
-    if (form.value.id == null) {
-      console.log(form.value);
-    } else {
-
-    }
-  }
-
 }

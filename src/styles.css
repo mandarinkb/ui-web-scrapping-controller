@@ -302,4 +302,18 @@ padding: 0 20px;
 padding: 20px 10px 40px;
 }
 
+/* สี modal */
+.modal-header-color{
+  background-color: #f6f6f6;
+}
+.modal-footer-color{
+  background-color: #f6f6f6;
+}
 
+/*css disable */
+input:disabled{
+  cursor:not-allowed
+}
+button:disabled{
+  cursor:not-allowed
+}
