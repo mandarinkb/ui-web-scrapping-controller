@@ -78,22 +78,7 @@ export class UsersComponent implements OnInit {
     }, err => {
     });
   }
-  readUsersById(id) {
-    this.service.readUsersById(id).subscribe((res: Users) => {
-      this.service.formUsersData = res;
-    }, err => {
-    });
-  }
 
-  updateUsers(id , form: NgForm) {
-    this.service.updateUsers(id, form).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Update user success.');
-      }
-      this.readUsers();
-    }, err => {
-    });
-  }
   onDelete(id) {
     this.dialogService
       .confirm(
@@ -136,7 +121,7 @@ export class UsersComponent implements OnInit {
     if (form.value.id == null) {
       this.saveUsers(form.value);
     } else {
-      this.updateUsers(form.value.id, form.value);
+
     }
   }
 

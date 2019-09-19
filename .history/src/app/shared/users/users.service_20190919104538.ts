@@ -27,11 +27,4 @@ export class UsersService {
   deleteUsers(id: number) {
     return this.http.delete(this.rootURL + '/users/' + id);
   }
-
-  readUsersById(id: number) {
-    return this.http.get(this.rootURL + '/users/' + id);
-  }
-  updateUsers(id: number, form: NgForm) {
-    return this.http.put(this.rootURL + '/users/' + id , form);
-  }
 }

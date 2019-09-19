@@ -23,15 +23,4 @@ export class UsersService {
   saveUsers(form: NgForm) {
     return this.http.post(this.rootURL + '/users', form);
   }
-
-  deleteUsers(id: number) {
-    return this.http.delete(this.rootURL + '/users/' + id);
-  }
-
-  readUsersById(id: number) {
-    return this.http.get(this.rootURL + '/users/' + id);
-  }
-  updateUsers(id: number, form: NgForm) {
-    return this.http.put(this.rootURL + '/users/' + id , form);
-  }
 }

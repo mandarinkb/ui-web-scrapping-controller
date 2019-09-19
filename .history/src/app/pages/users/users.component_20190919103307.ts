@@ -6,7 +6,6 @@ import { UsersService } from 'src/app/shared/users/users.service';
 import { NgForm } from '@angular/forms';
 import { Users } from 'src/app/shared/users/users.model';
 import { ToastrService } from 'ngx-toastr';
-import { Response } from 'src/app/shared/response.model';
 
 @Component({
   selector: 'app-users',
@@ -59,7 +58,7 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  saveUsers(form: NgForm) {
+  saveSchedule(form: NgForm) {
     this.service.saveUsers(form).subscribe((res: Response) => {
       if (res.status === 200) {
         this.toastr.success(res.message, 'Save cron expression success.');
@@ -69,32 +68,7 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  deleteUsers(id) {
-    this.service.deleteUsers(id).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Delete user success.');
-      }
-      this.readUsers();
-    }, err => {
-    });
-  }
-  readUsersById(id) {
-    this.service.readUsersById(id).subscribe((res: Users) => {
-      this.service.formUsersData = res;
-    }, err => {
-    });
-  }
-
-  updateUsers(id , form: NgForm) {
-    this.service.updateUsers(id, form).subscribe((res: Response) => {
-      if (res.status === 200) {
-        this.toastr.success(res.message, 'Update user success.');
-      }
-      this.readUsers();
-    }, err => {
-    });
-  }
-  onDelete(id) {
+  onDelete() {
     this.dialogService
       .confirm(
         'ยืนยันการลบรายการ..',
@@ -102,7 +76,7 @@ export class UsersComponent implements OnInit {
       )
       .then(confirmed => {  // กดok => confirmed = true , กดcancel => confirmed = false
         if (confirmed) {
-          this.deleteUsers(id);
+          console.log('ok');
         } else {
           // กรณี cancel ลบ
           console.log('cancel');
@@ -134,9 +108,9 @@ export class UsersComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     if (form.value.id == null) {
-      this.saveUsers(form.value);
+      console.log(form.value);
     } else {
-      this.updateUsers(form.value.id, form.value);
+
     }
   }
 

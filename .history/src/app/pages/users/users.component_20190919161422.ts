@@ -88,7 +88,7 @@ export class UsersComponent implements OnInit {
   updateUsers(id , form: NgForm) {
     this.service.updateUsers(id, form).subscribe((res: Response) => {
       if (res.status === 200) {
-        this.toastr.success(res.message, 'Update user success.');
+        this.toastr.success(res.message, 'Update cron expression success.');
       }
       this.readUsers();
     }, err => {
