@@ -28,7 +28,7 @@
     </ul>
     <ul class="navbar-nav">
       <a>
-        <img src="{{userImgSrc}}" alt="user" style="width: 20px; border-radius: 50%;margin-top: 9px;">
+        <img src="{{userImgSrc}}" alt="user" style="width: 38px; border-radius: 50%;">
       </a>&nbsp;
       <li class="nav-item">
         <a class="nav-link disabled">{{username}}</a>
@@ -45,6 +45,9 @@
         >
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: -128px;margin-top: 22px;">
+          <a class="dropdown-item" [routerLink]="['/setting-profile']"><i class="fa fa-fw fa-cogs"></i>&nbsp;
+            <span>ตั้งค่า</span></a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item cursor-pointer" (click)="logOut()"><i class="fa fa-fw fa-share-square-o"></i>&nbsp;
             <span>ออกจากระบบ</span></a>
         </div>

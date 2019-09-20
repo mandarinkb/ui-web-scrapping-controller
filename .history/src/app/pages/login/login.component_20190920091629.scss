@@ -1,7 +1,6 @@
-// สี background ด้านล่าง
 .material-half-bg {
   height: 100vh;
-  background-color: #e7e7e7; // #e7e7e7
+  background-color: #e7e7e7;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,9 +8,9 @@
   bottom: 0;
   z-index: -1;
 }
-// สี background ด้านบน
+
 .material-half-bg .cover {
-  background-color: #192f53; //#009688
+  background-color: #192f53; //   #009688
   height: 50vh;
 }
 
