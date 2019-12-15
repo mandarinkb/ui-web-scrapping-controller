@@ -7,8 +7,6 @@ export class AuthenService {
   private accessId = 'id';
   private accessUsername = 'username';
   private accessRole = 'role';
-  private accessDepartmentId = 'departmentId';
-  private accessDepartmentName = 'departmentName';
   constructor() { }
 
   // set token ลง client browser
@@ -62,36 +60,10 @@ export class AuthenService {
     sessionStorage.removeItem(this.accessRole);
   }
 
-  setDepartmentId(departmentId: string) {
-    sessionStorage.setItem(this.accessDepartmentId, departmentId);
-  }
-
-  getDepartmentId() {
-    return sessionStorage.getItem(this.accessDepartmentId);
-  }
-
-  clearDepartmentId() {
-    sessionStorage.removeItem(this.accessDepartmentId);
-  }
-
-  setDepartmentName(departmentName: string) {
-    sessionStorage.setItem(this.accessDepartmentName, departmentName);
-  }
-
-  getDepartmentName() {
-    return sessionStorage.getItem(this.accessDepartmentName);
-  }
-
-  clearDepartmentName() {
-    sessionStorage.removeItem(this.accessDepartmentName);
-  }
-
   clearAllSession() {
     this.clearAuthenticated();
     this.clearId();
     this.clearUsername();
     this.clearRole();
-    this.clearDepartmentId();
-    this.clearDepartmentName();
   }
 }
